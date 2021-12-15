@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramenta para revelar segredo de cadeado.</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <style>
+        html,
+        body {
+            text-align: center;
+            font-family: 'Verdana';
+        }
+
+        #senha {
+            width: 180px;
+            display: block;
+            margin: 0 auto;
+            font-weight: 600;
+            font-size: 60px;
+            border: 5px solid #000;
+            margin-bottom: 30px;
+        }
+
+        #btn-gerar-senha {
+            background-color: #2196f3;
+            border: 0;
+            padding: 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #btn-gerar-senha:hover {
+            background-color: #0073d1;
+        }
+
+        p {
+            font-size: 14px;
+            max-width: 450px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        #cadeado img {
+            max-width: 200px;
+        }
+
+        .aviso {
+            
+            font-size: 14px;
+            max-width: 400px;
+            margin: 0 auto;
+            margin-bottom: 14px;
+            color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>Revelador de segredo</h1>
+
+    <div id="cadeado">
+        <img
+            src="https://www.papaiz.com.br/presets/product-slideshow/Local/assaabloyCOMBR/Papaiz/Fun/Capa%20-%20Segredo.jpg">
+    </div>
+    <div class="aviso" hidden>Por favor, tente o número gerado, caso não funcione repita o processo.</div>
+    <div id="senha">---</div>
+    <p>Clique no botão abaixo para gerar uma possível combinação para destravar um cadeado com senha. Funciona em um
+        cadeado existente.</p>
+    <button id="btn-gerar-senha">Revelar segredo</button>
+
+
+    <script>
+        $(document).on("click", "#btn-gerar-senha", function () {
+            $('#senha').text(Math.floor(Math.random() * (999 - 0 + 1) + 0));
+            $('.aviso').show();
+            $('p').hide();
+        });
+    </script>
+
+</body>
+
+</html>
